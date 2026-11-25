@@ -1,6 +1,6 @@
 ---
 name: elementor-build-rules
-description: Digitalfeet's house rules for building WordPress pages in Elementor. Use this whenever you build, rebuild, edit or fix a page, section, template or widget in Elementor, whether by clicking in the Elementor editor (browser extension), writing Elementor data through a WordPress MCP (Novamira, elementor-mcp), or turning a design, mockup, Cloudflare link or design brief into an Elementor page. Also use it when planning an Elementor build or reviewing one, even if the user only says "build this page" or "make this in WordPress".
+description: Digitalfeet's house rules for building WordPress pages in Elementor. Use this whenever you build, rebuild, edit or fix a page, section, template or widget in Elementor, including working in the Elementor editor through the Claude browser extension (Claude in Chrome), planning a build, writing the build prompt for the extension, or turning a design, mockup, Cloudflare link or design brief into an Elementor page. Also use it when reviewing an Elementor build, even if the user only says "build this page" or "make this in WordPress".
 ---
 
 # Digitalfeet Elementor build rules
@@ -10,7 +10,7 @@ way no matter who (or which Claude) built it. The developer will maintain the pa
 you, so build it the way they would: tidy, named, made of real Elementor widgets, and
 driven by the site's global settings.
 
-If a design brief exists (from the `design-brief` agent, in `Desktop\design-briefs\`),
+If a design brief exists (from the `design-brief` agent, in `design-briefs` on the user's Desktop),
 read it first: it has the exact colours, fonts, sizes, spacing and section list.
 
 ## 1. Before you start
@@ -120,7 +120,34 @@ sideways.
 4. Repeated parts (header, footer, cards used on several pages) go in a saved
    template or the Theme Builder, not copied by hand.
 
-## 8. Before you hand over
+## 8. Working in the editor with the browser extension
+
+Digitalfeet builds through the Claude browser extension: Claude works in the Elementor
+editor on the staging site the way a developer would, by clicking. (Novamira and other
+WordPress MCP connections are no longer used for building.)
+
+- **Two tabs:** the Elementor editor on staging, and the design page (Cloudflare link) to
+  compare with. Build one section, then look at both before the next.
+- **Name:** open the Navigator (Ctrl+I), double-click the container, type the section name.
+- **CSS ID:** select the outer container → Advanced tab → CSS ID.
+- **Padding per device:** Advanced → Padding, unlink the values (chain icon), and use the
+  device switcher next to the field (desktop / tablet / mobile) to set 20px / 20px / 10px
+  sides. Desktop values otherwise carry down to tablet and mobile.
+- **Globals:** pick colours and fonts with the globe icon next to the field, never by
+  typing a hex value.
+- **Save as draft:** the arrow next to Publish → Save Draft. Never click Publish. Save
+  after every section, so a browser hiccup loses at most one section.
+- **Custom code** (custom widgets, CSS): in the browser this means the code snippet
+  plugin's screen in wp-admin, or Appearance → Theme File Editor on the child theme if it
+  is enabled. If neither is available, write the code out in the reply and hand it to the
+  developer instead of using an HTML widget.
+- **When the editor is slow or a click doesn't land**, take a screenshot and check the
+  state before trying again; don't repeat a step blindly (it can add duplicate widgets).
+
+If the extension does not load this skill by itself, paste the short version in
+`extension-prompt.md` (next to this file) at the start of the chat.
+
+## 9. Before you hand over
 
 Report this checklist to the developer, with anything you couldn't do and why:
 
