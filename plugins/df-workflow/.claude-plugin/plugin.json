@@ -1,0 +1,9 @@
+{
+  "name": "df-workflow",
+  "description": "Digitalfeet design-to-Elementor workflow: design brief agent, Elementor build rules, and QA agents (visual, technical, content) with a QA run skill",
+  "version": "1.0.0",
+  "author": {
+    "name": "Digitalfeet"
+  },
+  "keywords": ["wordpress", "elementor", "design-brief", "qa", "digitalfeet"]
+}
